@@ -1,5 +1,7 @@
 # Privacy Policy — Basic Color Picker
 
+> **Canonical version is hosted at <https://gsme.dev/basic-color-picker/privacy>** (source: [gsme.dev-v3/app/basic-color-picker/privacy/page.tsx](https://github.com/IsItGreg/gsme.dev-v3/blob/main/app/basic-color-picker/privacy/page.tsx)). This file is kept as a markdown mirror for offline reading; the gsme.dev URL is what the Chrome Web Store listing references.
+
 **Last updated: 2026-05-04**
 
 Basic Color Picker is a Chrome extension that lets you sample colors from any web page. It is designed to do its job without collecting, transmitting, or sharing any user data.
