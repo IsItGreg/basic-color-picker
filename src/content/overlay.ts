@@ -10,7 +10,7 @@ import {
   formatOklab,
   formatOklch,
 } from "../lib/color";
-import { matchTailwindPalette } from "../lib/tailwind-match";
+import { matchTailwindPalette, type TailwindVersion } from "../lib/tailwind-match";
 import { detectElementTailwind } from "../lib/element-classes";
 import {
   type ColorEntry,
@@ -291,8 +291,8 @@ function mountOverlay() {
       hslStr: formatHsl(hsl),
       oklabStr: formatOklab(oklab),
       oklchStr: formatOklch(oklch),
-      tailwindMatch: palette?.name ?? null,
-      elementTailwind: elementHits.map((h) => h.className),
+      tailwindMatch: palette ? { name: palette.name, version: palette.version } : null,
+      elementTailwind: elementHits.map((h) => ({ className: h.className, version: h.version })),
     };
   }
 
@@ -439,10 +439,20 @@ function mountOverlay() {
       { key: "oklch", value: entry.oklchStr, label: "OKLCH" },
     ];
     if (entry.tailwindMatch) {
-      pillSpecs.push({ key: "tw", value: entry.tailwindMatch, label: "TW", cls: "cp-pill-tw" });
+      pillSpecs.push({
+        key: "tw",
+        value: entry.tailwindMatch.name,
+        label: tailwindLabel(entry.tailwindMatch.version),
+        cls: "cp-pill-tw",
+      });
     }
-    for (const cls of entry.elementTailwind) {
-      pillSpecs.push({ key: "tw-el", value: cls, label: "EL", cls: "cp-pill-tw" });
+    for (const ec of entry.elementTailwind) {
+      pillSpecs.push({
+        key: "tw-el",
+        value: ec.className,
+        label: "EL " + tailwindLabel(ec.version),
+        cls: "cp-pill-tw",
+      });
     }
     for (const spec of pillSpecs) {
       const pill = document.createElement("button");
@@ -463,6 +473,10 @@ function mountOverlay() {
     li.appendChild(meta);
 
     return li;
+  }
+
+  function tailwindLabel(v: TailwindVersion): string {
+    return v === "both" ? "TW" : `TW ${v}`;
   }
 
   function escapeHtml(s: string): string {

@@ -111,3 +111,40 @@ export function hexToRgb(hex: string): Rgb | null {
   const n = parseInt(h, 16);
   return { r: (n >> 16) & 0xff, g: (n >> 8) & 0xff, b: n & 0xff };
 }
+
+// --- Reverse transforms (Oklch / Oklab → sRGB) -----------------------
+// Used to derive sRGB hex from OKLCH source values (e.g. Tailwind v4's
+// theme.css). Out-of-gamut OKLCH values are clipped to sRGB rather than
+// gamut-mapped — for the chroma levels Tailwind uses this is within a
+// couple of units and well inside our match threshold.
+
+function linearToSrgbChannel(c: number): number {
+  const v = Math.max(0, Math.min(1, c));
+  return v <= 0.0031308 ? 12.92 * v : 1.055 * Math.pow(v, 1 / 2.4) - 0.055;
+}
+
+export function oklabToRgb({ L, a, b }: Oklab): Rgb {
+  const lc = L + 0.3963377774 * a + 0.2158037573 * b;
+  const mc = L - 0.1055613458 * a - 0.0638541728 * b;
+  const sc = L - 0.0894841775 * a - 1.2914855480 * b;
+  const lLin = lc * lc * lc;
+  const mLin = mc * mc * mc;
+  const sLin = sc * sc * sc;
+  const rLin =  4.0767416621 * lLin - 3.3077115913 * mLin + 0.2309699292 * sLin;
+  const gLin = -1.2684380046 * lLin + 2.6097574011 * mLin - 0.3413193965 * sLin;
+  const bLin = -0.0041960863 * lLin - 0.7034186147 * mLin + 1.7076147010 * sLin;
+  return {
+    r: Math.round(linearToSrgbChannel(rLin) * 255),
+    g: Math.round(linearToSrgbChannel(gLin) * 255),
+    b: Math.round(linearToSrgbChannel(bLin) * 255),
+  };
+}
+
+export function oklchToOklab({ L, C, h }: Oklch): Oklab {
+  const hRad = (h * Math.PI) / 180;
+  return { L, a: C * Math.cos(hRad), b: C * Math.sin(hRad) };
+}
+
+export function oklchToRgb(oklch: Oklch): Rgb {
+  return oklabToRgb(oklchToOklab(oklch));
+}
