@@ -1,5 +1,6 @@
 node_modules/
 dist/
+basic-color-picker.zip
 .DS_Store
 *.log
 .vite/
