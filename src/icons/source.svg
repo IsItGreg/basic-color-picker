@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" fill="none">
+  <title>Basic Color Picker icon - map pin color wheel</title>
+  <desc>Transparent-background Chrome extension icon concept: a bold map pin outline with a simplified five-segment color wheel.</desc>
+  <defs>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity="0.06"/>
+    </filter>
+  </defs>
+
+  <!-- Transparent background intentionally omitted. -->
+
+  <g filter="url(#softShadow)">
+    <path
+      d="M512 944
+         C512 944 226 654 226 424
+         C226 246 370 104 512 104
+         C654 104 798 246 798 424
+         C798 654 512 944 512 944Z"
+      fill="#FFFFFF"
+      stroke="#151B22"
+      stroke-width="54"
+      stroke-linejoin="round"/>
+
+    <g>
+      <path d="M 287.55 282.07 A 236 236 0 0 1 503.76 119.14 L 509.42 281.05 A 74 74 0 0 0 441.62 332.13 Z" fill="#FF4E43"/><path d="M 520.24 119.14 A 236 236 0 0 1 733.77 274.28 L 581.54 329.69 A 74 74 0 0 0 514.58 281.05 Z" fill="#FFC21D"/><path d="M 738.86 289.95 A 236 236 0 0 1 650.72 545.93 L 555.50 414.87 A 74 74 0 0 0 583.13 334.60 Z" fill="#45B84D"/><path d="M 622.80 563.38 A 236 236 0 0 1 373.28 545.93 L 468.50 414.87 A 74 74 0 0 0 546.74 420.34 Z" fill="#1677F2"/><path d="M 348.06 524.76 A 236 236 0 0 1 287.55 282.07 L 441.62 332.13 A 74 74 0 0 0 460.60 408.23 Z" fill="#7D3CE0"/>
+      <circle cx="512" cy="355" r="74" fill="#FFFFFF"/>
+    </g>
+  </g>
+</svg>
