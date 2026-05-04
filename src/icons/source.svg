@@ -1,30 +1,36 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" fill="none">
-  <title>Basic Color Picker icon - map pin color wheel</title>
-  <desc>Transparent-background Chrome extension icon concept: a bold map pin outline with a simplified five-segment color wheel.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-label="Basic Color Picker icon">
   <defs>
-    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
-      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity="0.06"/>
+    <filter id="subtleShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000000" flood-opacity="0.10"/>
     </filter>
   </defs>
 
-  <!-- Transparent background intentionally omitted. -->
+  <!-- Transparent background -->
 
-  <g filter="url(#softShadow)">
-    <path
-      d="M512 944
-         C512 944 226 654 226 424
-         C226 246 370 104 512 104
-         C654 104 798 246 798 424
-         C798 654 512 944 512 944Z"
-      fill="#FFFFFF"
-      stroke="#151B22"
-      stroke-width="54"
-      stroke-linejoin="round"/>
+  <!-- Map pin: white interior with dark charcoal outline -->
+  <path
+    d="M512 72
+       C347 72 214 205 214 370
+       C214 491 276 622 386 774
+       L512 944
+       L638 774
+       C748 622 810 491 810 370
+       C810 205 677 72 512 72 Z"
+    fill="#ffffff"
+    stroke="#111820"
+    stroke-width="42"
+    stroke-linejoin="round"
+    stroke-linecap="round"
+    filter="url(#subtleShadow)"
+  />
 
-    <g>
-      <path d="M 287.55 282.07 A 236 236 0 0 1 503.76 119.14 L 509.42 281.05 A 74 74 0 0 0 441.62 332.13 Z" fill="#FF4E43"/><path d="M 520.24 119.14 A 236 236 0 0 1 733.77 274.28 L 581.54 329.69 A 74 74 0 0 0 514.58 281.05 Z" fill="#FFC21D"/><path d="M 738.86 289.95 A 236 236 0 0 1 650.72 545.93 L 555.50 414.87 A 74 74 0 0 0 583.13 334.60 Z" fill="#45B84D"/><path d="M 622.80 563.38 A 236 236 0 0 1 373.28 545.93 L 468.50 414.87 A 74 74 0 0 0 546.74 420.34 Z" fill="#1677F2"/><path d="M 348.06 524.76 A 236 236 0 0 1 287.55 282.07 L 441.62 332.13 A 74 74 0 0 0 460.60 408.23 Z" fill="#7D3CE0"/>
-      <circle cx="512" cy="355" r="74" fill="#FFFFFF"/>
-    </g>
+  <!-- Color wheel positioned in the round head of the pin -->
+  <g>
+    <path id="wheel-coral" d="M 297.7 469.9 A 228.0 228.0 0 0 1 512.0 164.0 L 512.0 300.0 A 92.0 92.0 0 0 0 425.5 423.5 Z" fill="#ff4f3e"/>
+    <path id="wheel-yellow" d="M 520.0 164.1 A 228.0 228.0 0 0 1 726.3 314.1 L 598.5 423.5 A 92.0 92.0 0 0 0 515.2 300.1 Z" fill="#f7c414"/>
+    <path id="wheel-green" d="M 730.5 327.8 A 228.0 228.0 0 0 1 645.9 576.4 L 566.0 466.3 A 92.0 92.0 0 0 0 600.2 365.2 Z" fill="#43bd4e"/>
+    <path id="wheel-blue" d="M 632.3 585.7 A 228.0 228.0 0 0 1 378.1 576.4 L 458.0 466.3 A 92.0 92.0 0 0 0 560.5 470.2 Z" fill="#136fff"/>
+    <path id="wheel-purple" d="M 364.4 565.8 A 228.0 228.0 0 0 1 292.9 454.4 L 423.6 414.9 A 92.0 92.0 0 0 0 452.4 462.1 Z" fill="#7b35d8"/>
+    <circle cx="512" cy="392" r="92" fill="#ffffff"/>
   </g>
 </svg>
