@@ -1,0 +1,17 @@
+{
+  "name": "basic-color-picker",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Chrome extension: click the icon to drop multiple color picks on a page; persistent history with HEX/RGB/HSL/Oklab/Oklch/Tailwind output.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@crxjs/vite-plugin": "^2.0.0-beta.27",
+    "@types/chrome": "^0.0.270",
+    "typescript": "^5.5.4",
+    "vite": "^5.4.6"
+  }
+}
