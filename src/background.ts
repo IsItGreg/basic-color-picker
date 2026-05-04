@@ -36,14 +36,15 @@ chrome.action.onClicked.addListener(async (tab) => {
     return;
   }
   try {
-    await chrome.tabs.sendMessage(tab.id, { type: "toggle-picker" });
+    // overlay.js is built as a self-contained IIFE by vite.config.overlay.ts
+    // and lives at the package root. activeTab grants temporary access on
+    // user gesture (the icon click) so we don't need broad host permissions.
+    await chrome.scripting.executeScript({
+      target: { tabId: tab.id },
+      files: ["overlay.js"],
+    });
   } catch (err) {
-    // sendMessage rejects if the receiver isn't loaded yet (e.g. the user
-    // installed the extension after opening the tab). Reload guidance.
-    await notify(
-      "Color picker not ready",
-      "Reload this tab once and try again.",
-    );
+    await notify("Color picker failed to start", String((err as Error)?.message ?? err));
   }
 });
 

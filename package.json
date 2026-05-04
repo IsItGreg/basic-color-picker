@@ -5,7 +5,7 @@
   "description": "Chrome extension: click the icon to drop multiple color picks on a page; persistent history with HEX/RGB/HSL/Oklab/Oklch/Tailwind output.",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && vite build -c vite.config.overlay.ts",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {

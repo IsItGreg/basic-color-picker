@@ -20,7 +20,8 @@ The unpacked extension is in `dist/`.
 2. Enable **Developer mode** (top right).
 3. **Load unpacked** → pick the `dist/` directory.
 4. Pin the extension from the puzzle-piece menu.
-5. Open any http(s) page and reload it once so the content script attaches.
+5. Click the toolbar icon on any http(s) page — the picker injects on demand;
+   no need to reload tabs after install.
 
 ## Using
 
@@ -57,10 +58,22 @@ src/
     └── storage.ts          chrome.storage.local wrappers
 ```
 
+## Permissions
+
+| Permission     | Why                                                                                       |
+| -------------- | ----------------------------------------------------------------------------------------- |
+| `activeTab`    | Read pixels from the currently-focused tab when you click the toolbar icon.               |
+| `scripting`    | Inject the picker overlay into the active tab on demand (no auto-injection).              |
+| `storage`      | Persist the picked-color history in `chrome.storage.local` (never leaves your machine).   |
+| `notifications`| Surface a one-line message when the picker can't run (e.g. on `chrome://` pages).         |
+
+The extension does **not** request `<all_urls>` host access. It runs only on the active
+tab when you click its icon, never in the background, and never sends data anywhere.
+
 ## Limitations
 
 - Restricted pages (`chrome://`, web store, `file://`) are skipped with a
-  notification — Chrome doesn't allow content scripts there.
+  notification — Chrome doesn't allow extensions to inject there.
 - The picker scrolls are locked while open; scroll first, then activate the picker
   to pick from a different region.
 - Cross-origin iframes capture pixels correctly but element-based Tailwind

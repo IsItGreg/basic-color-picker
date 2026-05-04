@@ -21,10 +21,10 @@ import {
   makeId,
 } from "../lib/storage";
 
-// The content script is auto-injected into every http(s) page so we have a
-// listener ready when the user clicks the toolbar action. Mounting the picker
-// UI only happens on receiving "toggle-picker" — and a second toggle tears it
-// down. This keeps the per-page footprint to a single message listener.
+// Injected on demand by the background service worker via
+// chrome.scripting.executeScript. Each injection re-runs this top-level
+// code: if a previous overlay is still mounted, tear it down (toggle off);
+// otherwise mount fresh.
 const HOST_ID = "__cp-host";
 declare global {
   interface Window {
@@ -32,14 +32,11 @@ declare global {
   }
 }
 
-chrome.runtime.onMessage.addListener((message) => {
-  if (!message || typeof message !== "object" || message.type !== "toggle-picker") return;
-  if (window.__colorPickerCleanup) {
-    window.__colorPickerCleanup();
-  } else {
-    mountOverlay();
-  }
-});
+if (window.__colorPickerCleanup) {
+  window.__colorPickerCleanup();
+} else {
+  mountOverlay();
+}
 
 type FormatKey = "hex" | "rgb" | "hsl" | "oklab" | "oklch";
 const FORMAT_LABELS: Record<FormatKey, string> = {
