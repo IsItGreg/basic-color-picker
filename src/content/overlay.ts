@@ -240,15 +240,20 @@ function mountOverlay() {
   function paintMagnifier(clientX: number, clientY: number) {
     if (!cachedScreenshotBitmap) return;
     const dpr = cachedDpr;
-    const cx = clientX * dpr;
-    const cy = clientY * dpr;
-    const half = MAG_PIXELS / 2;
+    // Snap to integer device-pixel coordinates and treat that as the cursor
+    // pixel. With MAG_PIXELS odd, we want the cursor pixel to be the exact
+    // centre tile of the grid; sampling half = (MAG_PIXELS-1)/2 on each
+    // side makes the centre tile in the canvas line up with the CSS
+    // crosshair (centred at MAG_SIZE / 2).
+    const px = Math.floor(clientX * dpr);
+    const py = Math.floor(clientY * dpr);
+    const half = (MAG_PIXELS - 1) / 2;
     magCtx.fillStyle = "#000";
     magCtx.fillRect(0, 0, MAG_SIZE, MAG_SIZE);
     magCtx.drawImage(
       cachedScreenshotBitmap,
-      cx - half,
-      cy - half,
+      px - half,
+      py - half,
       MAG_PIXELS,
       MAG_PIXELS,
       0,
@@ -258,7 +263,7 @@ function mountOverlay() {
     );
     // Sample the centre pixel for the swatch label.
     try {
-      const data = screenshotCtx.getImageData(Math.round(cx), Math.round(cy), 1, 1).data;
+      const data = screenshotCtx.getImageData(px, py, 1, 1).data;
       const rgb = { r: data[0]!, g: data[1]!, b: data[2]! };
       const hex = rgbToHex(rgb);
       magSwatch.style.background = hex;
@@ -330,8 +335,11 @@ function mountOverlay() {
     screenshotCanvas.height = fresh.height;
     screenshotCtx.drawImage(fresh, 0, 0);
 
-    const px = Math.round(clientX * cachedDpr);
-    const py = Math.round(clientY * cachedDpr);
+    // Match paintMagnifier: floor() identifies the pixel that physically
+    // contains the cursor, so the picked color always equals the centre
+    // tile of the magnifier preview.
+    const px = Math.floor(clientX * cachedDpr);
+    const py = Math.floor(clientY * cachedDpr);
     let data: Uint8ClampedArray;
     try {
       data = screenshotCtx.getImageData(px, py, 1, 1).data;
