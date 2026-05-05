@@ -95,7 +95,7 @@ Every pick keeps its full breakdown — HEX, RGB, HSL, Oklab, Oklch, plus any ma
 | `storage` | Persist your color history in `chrome.storage.local` — local only. |
 | `notifications` | Single notification when the picker can't run (e.g. on `chrome://` pages). |
 
-The extension does **not** request `<all_urls>` host access and does **not** declare any `content_scripts`. It runs only on the active tab, only when you click its icon. See the [privacy policy](https://gsme.dev/basic-color-picker/privacy) for the full data story.
+The extension does **not** request `<all_urls>` host access and does **not** declare any `content_scripts`. It runs only on the active tab, only when you click its icon. See the [privacy policy](https://gsme.dev/docs/basic-color-picker.md) for the full data story.
 
 ## Building / development
 

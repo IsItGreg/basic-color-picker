@@ -1,6 +1,6 @@
 # Privacy Policy — Basic Color Picker
 
-> **Canonical version is hosted at <https://gsme.dev/basic-color-picker/privacy>** (source: [gsme.dev-v3/app/basic-color-picker/privacy/page.tsx](https://github.com/IsItGreg/gsme.dev-v3/blob/main/app/basic-color-picker/privacy/page.tsx)). This file is kept as a markdown mirror for offline reading; the gsme.dev URL is what the Chrome Web Store listing references.
+> **Canonical version is hosted at <https://gsme.dev/docs/basic-color-picker.md>** (source: `public/docs/basic-color-picker.md` in [gsme.dev-v3](https://github.com/IsItGreg/gsme.dev-v3)). This file is kept as a markdown mirror; the gsme.dev URL is what the Chrome Web Store listing references.
 
 **Last updated: 2026-05-04**
 

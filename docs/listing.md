@@ -129,8 +129,8 @@ When prompted by the dashboard's *Data usage* checklist:
 | Encrypted in transit? | N/A — not transmitted |
 | Mechanism for users to request deletion? | **Yes — Clear all in the extension's history panel, or by uninstalling the extension** |
 
-Privacy policy URL: `https://gsme.dev/basic-color-picker/privacy`
-*(Hosted from the [gsme.dev-v3 repo](https://github.com/IsItGreg/gsme.dev-v3) at [app/basic-color-picker/privacy/page.tsx](https://github.com/IsItGreg/gsme.dev-v3/blob/main/app/basic-color-picker/privacy/page.tsx). Deploys automatically on push to main.)*
+Privacy policy URL: `https://gsme.dev/docs/basic-color-picker.md`
+*(Hosted as a static file from the [gsme.dev-v3 repo](https://github.com/IsItGreg/gsme.dev-v3) at `public/docs/basic-color-picker.md`. Deploys automatically on push to main.)*
 
 ---
 

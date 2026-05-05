@@ -1,0 +1,44 @@
+<!--
+  Small-size variant of source.svg, tuned for legibility at 16/32 px.
+  Differences from source.svg:
+    - outline stroke 32 → 64 (so the silhouette survives a 64x downscale)
+    - wheel stroke 98 → 132 (so each color slice covers more pixels)
+    - inner hole 122 → 90 (smaller white center; segments dominate)
+    - 4 wheel segments instead of 5 (cleaner 90° geometry at low pixel count)
+    - stroke-linejoin miter (sharp pin tip)
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" fill="none">
+  <defs>
+    <style>
+      .outline { stroke: #111827; stroke-width: 64; stroke-linecap: round; stroke-linejoin: miter; stroke-miterlimit: 6; }
+    </style>
+  </defs>
+
+  <!-- Outer pin -->
+  <path d="M512 86
+           C351 86 222 215 222 376
+           C222 491 275 608 383 768
+           L512 944
+           L641 768
+           C749 608 802 491 802 376
+           C802 215 673 86 512 86 Z"
+        fill="white" class="outline"/>
+
+  <!-- White backing circle for wheel -->
+  <circle cx="512" cy="390" r="244" fill="white"/>
+
+  <!-- 4-segment color wheel: thicker strokes, stays readable when downsampled -->
+  <g transform="rotate(-45 512 390)">
+    <circle cx="512" cy="390" r="170" fill="none" stroke="#FF513E" stroke-width="132"
+            stroke-linecap="butt" pathLength="100" stroke-dasharray="23 77" stroke-dashoffset="0"/>
+    <circle cx="512" cy="390" r="170" fill="none" stroke="#F4C20D" stroke-width="132"
+            stroke-linecap="butt" pathLength="100" stroke-dasharray="23 77" stroke-dashoffset="25"/>
+    <circle cx="512" cy="390" r="170" fill="none" stroke="#44C553" stroke-width="132"
+            stroke-linecap="butt" pathLength="100" stroke-dasharray="23 77" stroke-dashoffset="50"/>
+    <circle cx="512" cy="390" r="170" fill="none" stroke="#1F6BFF" stroke-width="132"
+            stroke-linecap="butt" pathLength="100" stroke-dasharray="23 77" stroke-dashoffset="75"/>
+  </g>
+
+  <!-- Center hole -->
+  <circle cx="512" cy="390" r="90" fill="white"/>
+</svg>
