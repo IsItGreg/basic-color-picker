@@ -32,6 +32,8 @@
   background: var(--cp-bg-solid);
   border: 1px solid var(--cp-border);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+  /* Sit above the markers layer so dropped pins never obscure the zoom. */
+  z-index: 2;
   /* Body of the magnifier is click-through so the cursor still picks the
      pixel underneath. The info bar at the bottom (the drag handle) is the
      only part that captures pointer events. */
