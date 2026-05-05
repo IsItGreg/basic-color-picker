@@ -1,7 +1,7 @@
 # Basic Color Picker
 
 <p align="center">
-  <img src="docs/screenshots/hero.png" alt="Basic Color Picker — drop pins on any web page, copy modern color formats. Chrome MV3 extension supporting HEX, RGB, HSL, Oklab, Oklch, and Tailwind v3 + v4 class names." width="900">
+  <img src="docs/screenshots/hero.jpg" alt="Basic Color Picker — drop pins on any web page, copy modern color formats. Chrome MV3 extension supporting HEX, RGB, HSL, Oklab, Oklch, and Tailwind v3 + v4 class names." width="900">
 </p>
 
 A no-frills color picker that does one thing well: click a toolbar icon, drop as many pins as you want on the current page, and read every pick back in every format you'd actually paste into CSS.
