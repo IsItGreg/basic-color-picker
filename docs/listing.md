@@ -140,10 +140,11 @@ Privacy policy URL: `https://gsme.dev/docs/basic-color-picker.md`
 | --- | --- | --- |
 | Store icon | 128×128 PNG | [src/icons/icon-128.png](../src/icons/icon-128.png) |
 | Small promo tile | 440×280 PNG | [docs/promo-440x280.png](promo-440x280.png) |
-| Screenshot 1 | 1280×800 PNG | crop / resize [docs/screenshots/magnifier-on-google.png](screenshots/magnifier-on-google.png) |
-| Screenshot 2 (recommended) | 1280×800 PNG | multi-pin shot |
-| Screenshot 3 (recommended) | 1280×800 PNG | history panel |
-| Screenshot 4 (recommended) | 1280×800 PNG | format dropdown |
+| Screenshot 1 (hero)        | 1280×800 PNG | crop / resize [docs/screenshots/hero.png](screenshots/hero.png) — purpose-built marketing composition with title, tagline, multi-pin Google shot, magnifier, history panel, and format dropdown all in one frame |
+| Screenshot 2 (recommended) | 1280×800 PNG | crop / resize [docs/screenshots/magnifier-on-google.png](screenshots/magnifier-on-google.png) |
+| Screenshot 3 (recommended) | 1280×800 PNG | crop / resize [docs/screenshots/multi-pin.png](screenshots/multi-pin.png) |
+| Screenshot 4 (recommended) | 1280×800 PNG | crop / resize [docs/screenshots/history-panel.png](screenshots/history-panel.png) |
+| Screenshot 5 (optional)    | 1280×800 PNG | crop / resize [docs/screenshots/format-dropdown.png](screenshots/format-dropdown.png) |
 | Marquee tile (optional, for featured placement) | 1400×560 PNG | not generated yet |
 
 The store accepts 640×400 screenshots as a minimum, but 1280×800 looks much better in the listing.

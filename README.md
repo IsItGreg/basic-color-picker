@@ -1,19 +1,10 @@
-<div align="center">
-  <img src="src/icons/icon-128.png" width="96" height="96" alt="Basic Color Picker icon">
-  <h1>Basic Color Picker</h1>
-  <p><strong>Drop pins on any web page. Copy modern color formats.</strong></p>
-  <p>
-    Chrome MV3 extension · HEX · RGB · HSL · Oklab · Oklch · Tailwind v3 + v4
-  </p>
-</div>
-
----
-
-A no-frills color picker that does one thing well: click a toolbar icon, drop as many pins as you want on the current page, and read every pick back in every format you'd actually paste into CSS.
+# Basic Color Picker
 
 <p align="center">
-  <img src="docs/screenshots/multi-pin.png" alt="Four pins dropped on the Google logo, each labeled with the picked HEX value" width="700">
+  <img src="docs/screenshots/hero.png" alt="Basic Color Picker — drop pins on any web page, copy modern color formats. Chrome MV3 extension supporting HEX, RGB, HSL, Oklab, Oklch, and Tailwind v3 + v4 class names." width="900">
 </p>
+
+A no-frills color picker that does one thing well: click a toolbar icon, drop as many pins as you want on the current page, and read every pick back in every format you'd actually paste into CSS.
 
 ## Why another color picker
 
