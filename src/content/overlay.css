@@ -48,14 +48,19 @@
   image-rendering: pixelated;
 }
 .cp-magnifier-crosshair {
+  /* Frames the centre tile of the zoom (the cursor's pixel). With 12x zoom
+     the cursor pixel renders as a 12x12 tile centred at (90,90); we use a
+     16x16 box with box-sizing:border-box and a 2px border so the *inner*
+     12x12 area aligns exactly with that tile. */
   position: absolute;
   left: 50%;
   top: 90px;
-  width: 12px;
-  height: 12px;
-  margin-left: -6px;
-  margin-top: -6px;
+  width: 16px;
+  height: 16px;
+  margin-left: -8px;
+  margin-top: -8px;
   border: 2px solid #fff;
+  box-sizing: border-box;
   box-shadow: 0 0 0 1px #000;
   border-radius: 2px;
   pointer-events: none;
@@ -91,12 +96,16 @@
   border: 1px solid var(--cp-border);
   color: #fff;
   border-radius: 4px;
-  font-size: 10px;
-  padding: 2px 5px;
+  font-size: 11px;
+  line-height: 1;
+  padding: 3px 6px;
   cursor: pointer;
   font-family: inherit;
 }
 .cp-magnifier-mode:hover { background: rgba(255, 255, 255, 0.18); }
+/* Follow is the implicit default — drag the info bar to pin. The button
+   only matters once the user is pinned (so they can return to follow). */
+.cp-magnifier[data-mode="follow"] .cp-magnifier-mode { display: none; }
 
 /* --- Markers ------------------------------------------------------ */
 .cp-markers { position: absolute; inset: 0; pointer-events: none; }

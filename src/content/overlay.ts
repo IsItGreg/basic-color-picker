@@ -76,7 +76,7 @@ function mountOverlay() {
       <div class="cp-magnifier-info" title="Drag to pin in place">
         <div class="cp-magnifier-swatch"></div>
         <div class="cp-magnifier-hex">#______</div>
-        <button class="cp-magnifier-mode" title="Toggle follow / pinned">FOLLOW</button>
+        <button class="cp-magnifier-mode" title="Return magnifier to follow the cursor">&#x21A9;&#xFE0E; follow</button>
       </div>
     </div>
 
@@ -571,7 +571,9 @@ function mountOverlay() {
   function setMagnifierMode(follow: boolean) {
     magnifierFollow = follow;
     magnifier.dataset.mode = follow ? "follow" : "free";
-    magModeBtn.textContent = follow ? "FOLLOW" : "PINNED";
+    // The button is hidden when in follow mode (see CSS). When pinned, it
+    // labels what clicking will do — return the magnifier to follow.
+    magModeBtn.innerHTML = "&#x21A9;&#xFE0E; follow";
     if (follow && lastCursor) positionMagnifier(lastCursor.x, lastCursor.y);
   }
   magModeBtn.addEventListener("click", (ev) => {
