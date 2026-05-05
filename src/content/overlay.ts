@@ -670,13 +670,21 @@ function mountOverlay() {
 
   document.addEventListener("keydown", keyHandler, true);
   function keyHandler(ev: KeyboardEvent) {
-    // Don't steal keys when typing into a form on the live page.
+    // Escape always closes the picker, even if focus is on a page input —
+    // when the script is first injected, focus is typically still on the
+    // page (e.g. Google's search box) so we'd otherwise eat the key.
+    if (ev.key === "Escape") {
+      ev.preventDefault();
+      ev.stopPropagation();
+      cleanup();
+      return;
+    }
+    // For other shortcuts, defer to the page when typing in a form.
     const target = ev.target as Element | null;
     const isEditable = target instanceof HTMLElement &&
       (target.isContentEditable || target.matches("input, textarea, select"));
     if (isEditable) return;
-    if (ev.key === "Escape") { ev.preventDefault(); cleanup(); }
-    else if (ev.key === "h" || ev.key === "H") { ev.preventDefault(); toggleHistory(); }
+    if (ev.key === "h" || ev.key === "H") { ev.preventDefault(); toggleHistory(); }
     else if (ev.key === "c" || ev.key === "C") {
       ev.preventDefault();
       for (const m of sessionMarkers) m.node.remove();
