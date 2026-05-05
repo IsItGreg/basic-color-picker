@@ -145,7 +145,7 @@ Privacy policy URL: `https://gsme.dev/docs/basic-color-picker.md`
 | Screenshot 3 (recommended) | 1280×800 PNG | crop / resize [docs/screenshots/multi-pin.png](screenshots/multi-pin.png) |
 | Screenshot 4 (recommended) | 1280×800 PNG | crop / resize [docs/screenshots/history-panel.png](screenshots/history-panel.png) |
 | Screenshot 5 (optional)    | 1280×800 PNG | crop / resize [docs/screenshots/format-dropdown.png](screenshots/format-dropdown.png) |
-| Marquee tile (optional, for featured placement) | 1400×560 PNG | not generated yet |
+| Marquee tile (optional, for featured placement) | 1400×560 JPG | [docs/marquee-1400x560.jpg](marquee-1400x560.jpg) |
 
 The store accepts 640×400 screenshots as a minimum, but 1280×800 looks much better in the listing.
 
