@@ -318,9 +318,18 @@ function mountOverlay() {
       <div class="cp-marker-pin" style="background:${entry.hex}">
         <span class="cp-marker-num">${num}</span>
       </div>
-      <div class="cp-marker-label">${entry.hex.toUpperCase()}</div>
+      <button class="cp-marker-label" type="button" title="Click to copy">${escapeHtml(primaryString(entry))}</button>
     `;
     node.title = `${entry.hex} · ${entry.rgbStr}`;
+    const label = node.querySelector<HTMLButtonElement>(".cp-marker-label");
+    label?.addEventListener("click", (ev) => {
+      ev.stopPropagation();
+      ev.preventDefault();
+      copy(primaryString(entry));
+    });
+    // Don't let pointerdown on the label fall through to the surface
+    // (which would treat it as a fresh pick where the marker sits).
+    label?.addEventListener("pointerdown", (ev) => ev.stopPropagation());
     markersLayer.appendChild(node);
     sessionMarkers.push({ id: entry.id, entry, node });
   }
@@ -689,6 +698,9 @@ function mountOverlay() {
       cleanup();
       return;
     }
+    // Ignore key shortcuts when any modifier is held — Cmd/Ctrl+C is
+    // copy-text, not clear-pins, and Cmd/Ctrl+H is browser-native.
+    if (ev.metaKey || ev.ctrlKey || ev.altKey) return;
     // For other shortcuts, defer to the page when typing in a form.
     const target = ev.target as Element | null;
     const isEditable = target instanceof HTMLElement &&

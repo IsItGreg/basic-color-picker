@@ -141,10 +141,18 @@
   font-family: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Monaco, monospace;
   font-size: 11px;
   background: var(--cp-bg-solid);
+  color: #fff;
   border: 1px solid var(--cp-border);
   border-radius: 4px;
   white-space: nowrap;
+  cursor: copy;
+  pointer-events: auto;
 }
+.cp-marker-label:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--cp-accent);
+}
+.cp-marker-label:active { transform: translateY(0.5px); }
 
 /* --- Toolbar ------------------------------------------------------ */
 .cp-toolbar {
@@ -154,6 +162,7 @@
   transform: translateX(-50%);
   display: flex;
   align-items: center;
+  flex-wrap: nowrap;
   gap: 8px;
   padding: 8px 10px;
   background: var(--cp-bg);
@@ -162,6 +171,13 @@
   border-radius: 10px;
   pointer-events: auto;
   user-select: none;
+  max-width: calc(100vw - 32px);
+}
+.cp-toolbar button { white-space: nowrap; }
+/* Narrow viewports: drop the keyboard help text so the action buttons
+   stay on a single row and labels never wrap. */
+@media (max-width: 720px) {
+  .cp-help { display: none; }
 }
 .cp-toolbar[data-dragging="true"] { transition: none; }
 .cp-toolbar-drag {
