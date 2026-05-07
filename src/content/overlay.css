@@ -147,12 +147,29 @@
   white-space: nowrap;
   cursor: copy;
   pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 .cp-marker-label:hover {
   background: rgba(255, 255, 255, 0.12);
   border-color: var(--cp-accent);
 }
 .cp-marker-label:active { transform: translateY(0.5px); }
+.cp-marker-label-copy {
+  display: none;
+  align-items: center;
+  gap: 3px;
+  color: var(--cp-accent);
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding-left: 6px;
+  border-left: 1px solid var(--cp-border);
+}
+.cp-marker-label:hover .cp-marker-label-copy { display: inline-flex; }
+.cp-marker-label-copy svg { display: block; }
 
 /* --- Toolbar ------------------------------------------------------ */
 .cp-toolbar {

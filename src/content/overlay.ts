@@ -318,7 +318,16 @@ function mountOverlay() {
       <div class="cp-marker-pin" style="background:${entry.hex}">
         <span class="cp-marker-num">${num}</span>
       </div>
-      <button class="cp-marker-label" type="button" title="Click to copy">${escapeHtml(primaryString(entry))}</button>
+      <button class="cp-marker-label" type="button" title="Click to copy">
+        <span class="cp-marker-label-text">${escapeHtml(primaryString(entry))}</span>
+        <span class="cp-marker-label-copy" aria-hidden="true">
+          <svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="5" y="5" width="8" height="9" rx="1.4"/>
+            <path d="M3 11V3.5A1.5 1.5 0 0 1 4.5 2H10"/>
+          </svg>
+          Copy
+        </span>
+      </button>
     `;
     node.title = `${entry.hex} · ${entry.rgbStr}`;
     const label = node.querySelector<HTMLButtonElement>(".cp-marker-label");
@@ -623,8 +632,8 @@ function mountOverlay() {
     }
     renderHistory();
     for (const m of sessionMarkers) {
-      const label = m.node.querySelector(".cp-marker-label");
-      if (label) label.textContent = primaryString(m.entry);
+      const text = m.node.querySelector(".cp-marker-label-text");
+      if (text) text.textContent = primaryString(m.entry);
     }
   }
   function setFormatMenuOpen(open: boolean) {
