@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Basic Color Picker",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Click the icon to drop multiple color pins on any page. Copy HEX, RGB, HSL, Oklab, Oklch, or Tailwind class. Persistent history.",
   "action": {
     "default_icon": {
