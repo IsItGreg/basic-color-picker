@@ -329,7 +329,6 @@ function mountOverlay() {
         </span>
       </button>
     `;
-    node.title = `${entry.hex} · ${entry.rgbStr}`;
     const label = node.querySelector<HTMLButtonElement>(".cp-marker-label");
     label?.addEventListener("click", (ev) => {
       ev.stopPropagation();
