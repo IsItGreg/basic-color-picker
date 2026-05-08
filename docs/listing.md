@@ -1,6 +1,8 @@
 # Chrome Web Store listing — copy reference
 
-Paste these strings into the corresponding fields in the [Chrome Web Store dev console](https://chrome.google.com/webstore/devconsole). Lengths shown are as of 2026-05-04 against the public limits.
+> **Live:** <https://chromewebstore.google.com/detail/basic-color-picker/knjkbicpmfoiiiiomjbjnlpfcoedmegd>
+
+Paste these strings into the corresponding fields in the [Chrome Web Store dev console](https://chrome.google.com/webstore/devconsole) when filling out a fresh listing or pushing an update. Lengths shown are as of 2026-05-04 against the public limits.
 
 ---
 

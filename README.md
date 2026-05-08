@@ -1,7 +1,13 @@
 # Basic Color Picker
 
 <p align="center">
-  <img src="docs/screenshots/hero.jpg" alt="Basic Color Picker — drop pins on any web page, copy modern color formats. Chrome MV3 extension supporting HEX, RGB, HSL, Oklab, Oklch, and Tailwind v3 + v4 class names." width="900">
+  <a href="https://chromewebstore.google.com/detail/basic-color-picker/knjkbicpmfoiiiiomjbjnlpfcoedmegd">
+    <img src="docs/screenshots/hero.jpg" alt="Basic Color Picker — drop pins on any web page, copy modern color formats. Chrome MV3 extension supporting HEX, RGB, HSL, Oklab, Oklch, and Tailwind v3 + v4 class names." width="900">
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://chromewebstore.google.com/detail/basic-color-picker/knjkbicpmfoiiiiomjbjnlpfcoedmegd"><strong>Install from the Chrome Web Store →</strong></a>
 </p>
 
 A no-frills color picker that does one thing well: click a toolbar icon, drop as many pins as you want on the current page, and read every pick back in every format you'd actually paste into CSS.
@@ -19,7 +25,11 @@ Native `EyeDropper` closes after one pick. Most extensions show colors one-at-a-
 
 ## Install
 
-### From source (until the Web Store listing goes live)
+### Chrome Web Store
+
+[**chromewebstore.google.com/detail/basic-color-picker**](https://chromewebstore.google.com/detail/basic-color-picker/knjkbicpmfoiiiiomjbjnlpfcoedmegd) — click *Add to Chrome*.
+
+### From source
 
 ```sh
 git clone https://github.com/IsItGreg/basic-color-picker
